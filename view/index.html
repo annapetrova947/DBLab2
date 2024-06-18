@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatory Database</title>
+    <link rel="stylesheet" href="./../static/index.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Coordinates</th>
+            <th>Light Intensity</th>
+            <th>Foreign Objects</th>
+            <th>Star Objects Count</th>
+            <th>Unknown Objects Count</th>
+            <th>Defined Objects Count</th>
+            <th>Notes</th>
+            <th>Object ID</th>
+            <th>Type</th>
+            <th>Galaxy</th>
+            <th>Accuracy</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td class="editable">45.6789, 23.4567</td>
+            <td class="editable">5000</td>
+            <td class="editable">0</td>
+            <td class="editable">1000</td>
+            <td class="editable">300</td>
+            <td class="editable">500</td>
+            <td class="editable">Нет</td>
+            <td class="editable">1</td>
+            <td class="editable">Звезда</td>
+            <td class="editable">Андромеда</td>
+            <td class="editable">99</td>
+            <td>
+                <button class="edit-btn" data-id="{{.ID}}">✏️</button>
+                <button class="delete-btn" data-id="{{.ID}}">🗑️</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="editable">78.4121, 11.2222</td>
+            <td class="editable">3790</td>
+            <td class="editable">4</td>
+            <td class="editable">901</td>
+            <td class="editable">245</td>
+            <td class="editable">186</td>
+            <td class="editable">Нет</td>
+            <td class="editable">3</td>
+            <td class="editable">Звезда</td>
+            <td class="editable">Млечный путь</td>
+            <td class="editable">100</td>
+            <td>
+                <button class="edit-btn" data-id="{{.ID}}">✏️</button>
+                <button class="delete-btn" data-id="{{.ID}}">🗑️</button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="editable">12.1313, 16.1875</td>
+            <td class="editable">123.9</td>
+            <td class="editable">8</td>
+            <td class="editable">8905.3</td>
+            <td class="editable">128</td>
+            <td class="editable">896</td>
+            <td class="editable">Нет</td>
+            <td class="editable">4</td>
+            <td class="editable">Комета</td>
+            <td class="editable">Андромеда</td>
+            <td class="editable">83.13</td>
+            <td>
+                <button class="edit-btn" data-id="{{.ID}}">✏️</button>
+                <button class="delete-btn" data-id="{{.ID}}">🗑️</button>
+            </td>
+        </tr>
+    </table>
+    <!-- Модальное окно -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Отредактировать строку</h2>
+            <form id="editForm" action="/edit" method="post">
+                <input type="hidden" id="editId" name="id">
+                <label for="editCoordinates">Coordinates:</label>
+                <input type="text" id="editCoordinates" name="coordinates" required><br>
+                <label for="editLightIntensity">Light Intensity:</label>
+                <input type="text" id="editLightIntensity" name="light_intensity" required><br>
+                <label for="editForeignObjects">Foreign Objects:</label>
+                <input type="text" id="editForeignObjects" name="foreign_objects" required><br>
+                <label for="editStarObjectsCount">Star Objects Count:</label>
+                <input type="text" id="editStarObjectsCount" name="star_objects_count" required><br>
+                <label for="editUnknownObjectsCount">Unknown Objects Count:</label>
+                <input type="text" id="editUnknownObjectsCount" name="unknown_objects_count" required><br>
+                <label for="editDefinedObjectsCount">Defined Objects Count:</label>
+                <input type="text" id="editDefinedObjectsCount" name="defined_objects_count" required><br>
+                <label for="editNotes">Notes:</label>
+                <input type="text" id="editNotes" name="notes" required><br>
+                <label for="editObjectID">Object ID:</label>
+                <input type="text" id="editObjectID" name="object_id" required><br>
+                <label for="editType">Type:</label>
+                <input type="text" id="editType" name="type" required><br>
+                <label for="editGalaxy">Galaxy:</label>
+                <input type="text" id="editGalaxy" name="galaxy" required><br>
+                <label for="editAccuracy">Accuracy:</label>
+                <input type="text" id="editAccuracy" name="accuracy" required><br>
+                <button type="submit">Отредактировать</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+</html>
